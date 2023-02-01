@@ -1,0 +1,2 @@
+I worked with Cecilie on this compulsory since it was written on canvas that you should work in groups of 2, so we have the exact same code.
+We ran into some technical issues with our original project, so we had to use the template we made during class with the Teacher's assistant
