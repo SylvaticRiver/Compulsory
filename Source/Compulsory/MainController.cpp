@@ -8,10 +8,8 @@
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 
-// Sets default values
 AMainController::AMainController()
 {
-	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 
@@ -59,7 +57,6 @@ AMainController::AMainController()
 	SpringArm->SetRelativeRotation(FRotator(-65.f, 0.f, 0.f));
 	SpringArm->TargetArmLength = 500.f;
 
-	// Attach the Camera to SpringArm
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
@@ -80,7 +77,7 @@ AMainController::AMainController()
 
 }
 
-// Called when the game starts or when spawned
+
 void AMainController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -96,79 +93,76 @@ void AMainController::BeginPlay()
 	Spheres[8]->SetMaterial(0, White);
 }
 
-// Called every frame
 void AMainController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-// Called to bind functionality to input
 void AMainController::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAction("1", IE_Pressed, this, &AMainController::OnePressed);
-	PlayerInputComponent->BindAction("2", IE_Pressed, this, &AMainController::TwoPressed);
-	PlayerInputComponent->BindAction("3", IE_Pressed, this, &AMainController::ThreePressed);
-	PlayerInputComponent->BindAction("4", IE_Pressed, this, &AMainController::FourPressed);
-	PlayerInputComponent->BindAction("5", IE_Pressed, this, &AMainController::FivePressed);
-	PlayerInputComponent->BindAction("6", IE_Pressed, this, &AMainController::SixPressed);
-	PlayerInputComponent->BindAction("7", IE_Pressed, this, &AMainController::SevenPressed);
-	PlayerInputComponent->BindAction("8", IE_Pressed, this, &AMainController::EightPressed);
-	PlayerInputComponent->BindAction("9", IE_Pressed, this, &AMainController::NinePressed);
+	PlayerInputComponent->BindAction("1", IE_Pressed, this, &AMainController::One);
+	PlayerInputComponent->BindAction("2", IE_Pressed, this, &AMainController::Two);
+	PlayerInputComponent->BindAction("3", IE_Pressed, this, &AMainController::Three);
+	PlayerInputComponent->BindAction("4", IE_Pressed, this, &AMainController::Four);
+	PlayerInputComponent->BindAction("5", IE_Pressed, this, &AMainController::Five);
+	PlayerInputComponent->BindAction("6", IE_Pressed, this, &AMainController::Six);
+	PlayerInputComponent->BindAction("7", IE_Pressed, this, &AMainController::Seven);
+	PlayerInputComponent->BindAction("8", IE_Pressed, this, &AMainController::Eight);
+	PlayerInputComponent->BindAction("9", IE_Pressed, this, &AMainController::Nine);
 
 }
 
-void AMainController::OnePressed()
+void AMainController::One()
 {
-	TurnController(0);
-
+	MakeTurn(0);
 }
 
-void AMainController::TwoPressed()
+void AMainController::Two()
 {
-	TurnController(1);
+	MakeTurn(1);
 }
 
-void AMainController::ThreePressed()
+void AMainController::Three()
 {
-	TurnController(2);
+	MakeTurn(2);
 }
 
-void AMainController::FourPressed()
+void AMainController::Four()
 {
-	TurnController(3);
+	MakeTurn(3);
 }
 
-void AMainController::FivePressed()
+void AMainController::Five()
 {
-	TurnController(4);
+	MakeTurn(4);
 }
 
-void AMainController::SixPressed()
+void AMainController::Six()
 {
-	TurnController(5);
+	MakeTurn(5);
 }
 
-void AMainController::SevenPressed()
+void AMainController::Seven()
 {
-	TurnController(6);
+	MakeTurn(6);
 }
 
-void AMainController::EightPressed()
+void AMainController::Eight()
 {
-	TurnController(7);
+	MakeTurn(7);
 }
 
-void AMainController::NinePressed()
+void AMainController::Nine()
 {
-	TurnController(8);
+	MakeTurn(8);
 }
 
 
 
-void AMainController::TurnController(int indexNumber)
+void AMainController::MakeTurn(int indexNumber)
 {
 	if (Color[indexNumber] == NULL)
 	{

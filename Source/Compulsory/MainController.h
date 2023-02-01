@@ -16,18 +16,15 @@ class COMPULSORY_API AMainController : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
 	AMainController();
 
 protected:
-	// Called when the game starts or when spawned
+
 	virtual void BeginPlay() override;
 
 public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere)
@@ -55,17 +52,17 @@ public:
 
 
 
-	void OnePressed();
-	void TwoPressed();
-	void ThreePressed();
-	void FourPressed();
-	void FivePressed();
-	void SixPressed();
-	void SevenPressed();
-	void EightPressed();
-	void NinePressed();
+	void One();
+	void Two();
+	void Three();
+	void Four();
+	void Five();
+	void Six();
+	void Seven();
+	void Eight();
+	void Nine();
 
-	void TurnController(int indexNumber);
+	void MakeTurn(int indexNumber);
 
 	void isMatching(int index);
 };
